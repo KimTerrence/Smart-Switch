@@ -3,7 +3,7 @@ session_start();
 
 // Check if the user is logged in
 if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
-    header("Location: login.php");
+    header( "Location: login.php");
     exit;
 }
 ?>
@@ -16,7 +16,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     <title>Dashboard</title>
 </head>
 <body>
-    <h1>Welcome, <?php echo htmlspecialchars($_SESSION['username']); ?>!</h1>
+    <h1>Welcome, <?php echo htmlspecialchars($_SESSION['username'] . $_SESSION['lastname']); ?>!</h1>
     <p>You are logged in.</p>
     <a href="logout.php">Logout</a>
 </body>

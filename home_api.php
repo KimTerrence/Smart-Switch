@@ -14,7 +14,7 @@ if ($conn->connect_error) {
 
 if (isset($_SESSION['username'])) {
     $user = $_SESSION['username'];
-    $_SESSION['loggedin'] = true;
+    
 
     $sql = "SELECT * FROM user_info WHERE username='$user'";        
     $result = $conn->query($sql);

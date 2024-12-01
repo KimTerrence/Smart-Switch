@@ -25,6 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $row = $result->fetch_assoc();
         if (password_verify($pass, $row['password'])) {
             $_SESSION['username'] = $user;  // Store user info in session
+            $_SESSION['loggedin'] = true;
             echo "Login successful";
          
 

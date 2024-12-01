@@ -10,7 +10,7 @@
     <?php if (isset($_GET['error'])): ?>
         <p style="color:red;"><?php echo htmlspecialchars($_GET['error']); ?></p>
     <?php endif; ?>
-    <form action="home.php" method="POST">
+    <form action="login_api.php" method="POST">
         <label for="username">Username:</label>
         <input type="text" id="username" name="username" required>
         <br><br>
