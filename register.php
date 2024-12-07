@@ -20,13 +20,11 @@
             echo "Error: " . $sql . "<br>" . $conn->error;
         }
         }else{
-            $password = false;
+            echo 'password not match';
          }
-         echo $pass;
-         echo $cpw;
+        
     }
 ?>
-
 
 
 <!DOCTYPE html>
@@ -38,7 +36,6 @@
     <link rel="stylesheet" href="./bootstrap/css/bootstrap.css  "/>
     <script src="./bootstrap/js/bootstrap.js"></script>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body class="d-flex align-items-center vh-100 w-100 justify-content-center bg-dark-subtle position-relative">
     <form  method="POST" class="d-flex flex-column align-items-center justify-content-center p-5 bg-white shadow rounded gap-4">
@@ -58,19 +55,5 @@
         
         <p>Already have an account? <a href="login.php">Login</a></p>
     </form>
-
-    <div class="position-fixed">
-        <?php 
-            if($password == false){
-                echo'<script>
-                        Swal.fire({
-                        title: "The Internet?",
-                        text: "That thing is still around?",
-                        icon: "question"
-                        });
-                    </script>';
-            }
-        ?>
-    </div>
 </body>
 </html>
