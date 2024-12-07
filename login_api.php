@@ -1,20 +1,9 @@
 <?php
 session_start();
 
-$servername = "localhost";
-$username = "root"; // Replace with your DB username
-$password = ""; // Replace with your DB password
-$dbname = "Appdev";
+include 'database_config.php';
 
-
-
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_SERVER["REQUEST_METHOD"] == "POST") { 
     $user = $_POST["username"];
     $pass = $_POST["password"];
 

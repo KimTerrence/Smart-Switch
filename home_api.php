@@ -1,16 +1,8 @@
 <?php
+/*
 session_start();
 
-$servername = "localhost";
-$username = "root"; // Replace with your DB username
-$password = ""; // Replace with your DB password
-$dbname = "Appdev";
-
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+include 'database_config.php';
 
 if (isset($_SESSION['username'])) {
     $user = $_SESSION['username'];
@@ -31,4 +23,5 @@ if (isset($_SESSION['username'])) {
 }
 
 $conn->close();
+*/
 ?>
