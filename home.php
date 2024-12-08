@@ -30,9 +30,12 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Smart Switch</title>
+    <link rel="stylesheet" href="./bootstrap/css/bootstrap.css  "/>
+    <script src="./bootstrap/js/bootstrap.js"></script>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body>
-    <h1>Welcome, <?php echo htmlspecialchars($row['firstname'] . " ". $row['lastname']); ?>!</h1>
+    <p>Welcome, <?php echo htmlspecialchars($row['firstname'] . " ". $row['lastname']); ?>!</p>
     <p>You are logged in.</p>
     <a href="logout.php">Logout</a>
 </body>

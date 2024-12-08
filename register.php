@@ -52,8 +52,11 @@
                 <button type="submit" class="btn btn-primary w-100">Register</button>
             </div>
     </div>
-        
-        <p>Already have an account? <a href="login.php">Login</a></p>
+        <p>Already have an account? <a href="login.php">Login</a></p>   
     </form>
 </body>
 </html>
+
+
+
+
