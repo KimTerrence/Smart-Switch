@@ -1,31 +1,3 @@
-<?php
-    
-    include 'database_config.php';
-
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $fname = $_POST["firstname"];
-        $lname = $_POST["lastname"];
-        $user = $_POST["username"];
-        $pass = $_POST["password"];
-        $cpw = $_POST['cpw'];
-
-        if($cpw == $pass){
-
-        $pass = password_hash($_POST["password"], PASSWORD_DEFAULT);  // Password encryption
-        $sql = "INSERT INTO user_info (firstname, lastname, username, password) VALUES ( '$fname', '$lname', '$user', '$pass')";
-        
-        if ($conn->query($sql) === TRUE) {
-            header("Location: login.php");
-        } else {
-            echo "Error: " . $sql . "<br>" . $conn->error;
-        }
-        }else{
-            echo 'password not match';
-         }
-        
-    }
-?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -38,7 +10,7 @@
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body class="d-flex align-items-center vh-100 w-100 justify-content-center bg-dark-subtle position-relative">
-    <form  method="POST" class="d-flex flex-column align-items-center justify-content-center p-5 bg-white shadow rounded gap-4">
+    <form action="register_api.php"  method="POST"  class="d-flex flex-column align-items-center justify-content-center p-5 bg-white shadow rounded gap-4">
     <p class="fs-1 fw-bold">Register</p>
     <div class="d-flex gap-3">
             <div class="d-flex gap-3 flex-column"> 

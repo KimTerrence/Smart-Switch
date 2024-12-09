@@ -1,5 +1,4 @@
 <?php
-/*
 session_start();
 
 include 'database_config.php';
@@ -23,5 +22,4 @@ if (isset($_SESSION['username'])) {
 }
 
 $conn->close();
-*/
 ?>
