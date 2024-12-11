@@ -35,7 +35,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg bg-white px-5">
+    <nav class="navbar navbar-expand-lg bg-white px-lg-5">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">Smart Switch</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -45,7 +45,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                   
             </ul>
-            <span class="navbar-text">
+            <span class="navbar-text d-flex justify-content-end p-2">
                <a href="./logout.php" class="btn btn-danger text-white">Logout</a>
             </span>
             </div>  
