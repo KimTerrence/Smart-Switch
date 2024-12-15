@@ -35,8 +35,8 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg bg-white px-lg-5">
-        <div class="container-fluid">
+    <nav class="navbar navbar-expand-lg bg-dark-subtle px-2">
+        <div class="container-fluid bg-white px-lg-5 py-1 shadow rounded">
             <a class="navbar-brand" href="#">Smart Switch</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -52,11 +52,59 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
         </div>
     </nav>
 
-    <section class="p-2 bg-dark-subtle vh-100">
-        <div class="bg-white shadow h-100 rounded shadow p-5">
+    <section class="px-2 px-sm-0 bg-dark-subtle vh-100">
+        <div class="bg-white shadow h-100 rounded shadow p-5 d-flex flex-column align-items-center">
             <p class="w-100 text-center fs-1"> Welcome, <?php echo htmlspecialchars($row['firstname'] . " ". $row['lastname']); ?> !</p>
+            <div class="h-75 w-75 bg-light-subtle rounded shadow d-flex flex-column align-items-center">
+                <div class="d-flex align-items-center py-4 px-5  w-100">  
+                    <div class="px-5 d-flex justify-content-between w-100 align-items-center">
+                        <button class="btn btn-primary">Turn off all</button>
+                        <p class="text-danger">December 29 10:20:1 AM</p>
+                    </div>              
+                </div>
+                <div class="w-100  d-flex justify-content-center gap-5">
+                   <div class="bg-white shadow w-25  p-2 rounded d-flex align-items-center jusify-content-center flex-column">
+                    <p>Room 1</p>
+                        <button class="btn btn-primary w-50">switch</button>
+                   </div>
+                   <div class="bg-white shadow w-25  p-2 rounded d-flex align-items-center jusify-content-center flex-column">
+                    <p>Room 2</p>
+                        <button class="btn btn-primary w-50">switch</button>
+                   </div>
+                   <div class="bg-white shadow w-25  p-2 rounded d-flex align-items-center jusify-content-center flex-column">
+                    <p>Room 3</p>
+                        <button class="btn btn-primary w-50">switch</button>
+                   </div>
+                </div>
+                <div class="w-100 pt-5 d-flex justify-content-center gap-5">
+                   <div class="bg-white shadow w-25  p-2 rounded d-flex align-items-center jusify-content-center flex-column">
+                    <p>Kitchen</p>
+                        <button class="btn btn-primary w-50">switch</button>
+                   </div>
+                   <div class="bg-white shadow w-25  p-2 rounded d-flex align-items-center jusify-content-center flex-column">
+                    <p>Gues Room</p>
+                        <button class="btn btn-primary w-50">switch</button>
+                   </div>
+                   <div class="bg-white shadow w-25  p-2 rounded d-flex align-items-center jusify-content-center flex-column">
+                    <p>Balcony</p>
+                        <button class="btn btn-primary w-50">switch</button>
+                   </div>
+                </div>
+                <div class="w-100 pt-5 d-flex justify-content-center gap-5">
+                   <div class="bg-white shadow w-25  p-2 rounded d-flex align-items-center jusify-content-center flex-column">
+                    <p>Terris</p>
+                        <button class="btn btn-primary w-50">switch</button>
+                   </div>
+                   <div class="bg-white shadow w-25  p-2 rounded d-flex align-items-center jusify-content-center flex-column">
+                    <p>Switch 1</p>
+                        <button class="btn btn-primary w-50">switch</button>
+                   </div>
+                   <div class="bg-white shadow w-25  p-2 rounded d-flex align-items-center jusify-content-center flex-column">
+                    <p>Switch 2</p>
+                        <button class="btn btn-primary w-50">switch</button>
+                   </div>
+            </div>
         </div>
     </section>
 </body>
 </html>
- 
