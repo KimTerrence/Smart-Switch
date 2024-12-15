@@ -15,11 +15,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (password_verify($pass, $row['password'])) {
             $_SESSION['username'] = $user;  // Store user info in session
             $_SESSION['loggedin'] = true;
-            echo "Login successful";
-         
 
              // Redirect to dashboard
-             header("Location: home.php");
+             echo'<script>window.location = "home.php";</script>';
              exit;
 
          } else {

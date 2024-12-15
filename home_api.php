@@ -3,23 +3,24 @@ session_start();
 
 include 'database_config.php';
 
-if (isset($_SESSION['username'])) {
-    $user = $_SESSION['username'];
+$user = $_SESSION['username'];
     
 
-    $sql = "SELECT * FROM user_info WHERE username='$user'";        
-    $result = $conn->query($sql);
+$sql = "SELECT * FROM user_info WHERE username='$user'";        
+$result = $conn->query($sql);
 
-    if ($result->num_rows > 0) {
-        $row = $result->fetch_assoc();
-        echo json_encode($row); // Send user info as JSON
-        echo "hi" . $row['firstname'] . $row['lastname'];
-    } else {
-        echo "No user found";
-    }
+$data = array();
+
+if ($result->num_rows > 0) {
+    $row = $result->fetch_assoc();  
+
+    $data[] = $row;
+
 } else {
-    echo "User not logged in";
+    echo "No user found";
 }
+
+echo json_encode($data);
 
 $conn->close();
 ?>
