@@ -52,8 +52,8 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
         </div>
     </nav>
 
-    <section class="px-2 px-sm-0 bg-dark-subtle vh-100">
-        <div class="bg-white shadow h-100 rounded shadow p-5 d-flex flex-column align-items-center">
+    <section class="px-2 bg-dark-subtle vh-100">
+        <div class="bg-white shadow w-100 h-100 rounded shadow p-sm-5 p-0 d-flex flex-column align-items-center">
             <p class="w-100 text-center fs-1"> Welcome, <?php echo htmlspecialchars($row['firstname'] . " ". $row['lastname']); ?> !</p>
             <div class="h-75 w-75 bg-light-subtle rounded shadow d-flex flex-column align-items-center">
                 <div class="d-flex align-items-center py-4 px-5  w-100">  
@@ -65,7 +65,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
                 <div class="w-100  d-flex justify-content-center gap-5">
                    <div class="bg-white shadow w-25  p-2 rounded d-flex align-items-center jusify-content-center flex-column">
                     <p>Room 1</p>
-                        <button class="btn btn-primary w-50">switch</button>
+                        <button class="btn btn-primary w-50">On</button>
                    </div>
                    <div class="bg-white shadow w-25  p-2 rounded d-flex align-items-center jusify-content-center flex-column">
                     <p>Room 2</p>
