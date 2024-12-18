@@ -10,9 +10,11 @@
     <button onclick="controlLED('on')">Turn ON</button>
     <button onclick="controlLED('off')">Turn OFF</button>
     <button onclick="controlLED('low')">Turn DIMM</button>
+    <button onclick="controlLED('senOn')">Sensor ON</button>
+    <button onclick="controlLED('senOff')">Sensor OFF</button>
 
 
-    <script>
+    <script>    
         function controlLED(action) {
             fetch(`test_api.php?action=${action}`)
                 .then(response => response.text())

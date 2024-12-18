@@ -1,7 +1,7 @@
 <?php
 if (isset($_GET['action'])) {
     $action = $_GET['action'];
-    $esp_ip = "192.168.8.102"; // Replace with the IP address of your ESP8266
+    $esp_ip = "192.168.8.105"; // Replace with the IP address of your ESP8266
 
     if ($action == "on") {
         file_get_contents("http://$esp_ip/LED=ON");
@@ -12,10 +12,20 @@ if (isset($_GET['action'])) {
     } elseif ($action == "low") {
         file_get_contents("http://$esp_ip/LED=MID");
         echo "LED turned OFF.";
-    } else {
-        echo "Invalid action.";
     }
+
+    //Sensor
+    if ($action == "senOn") {
+        file_get_contents("http://$esp_ip/SLED=ON");
+        echo "LED turned ON.";
+    } elseif ($action == "senOff") {
+        file_get_contents("http://$esp_ip/SLED=OFF");
+        echo "LED turned OFF.";
+    }
+
 } else {
     echo "No action specified.";
 }
+
+
 ?>
