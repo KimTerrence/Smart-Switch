@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control ESP8266</title>
+    <script>
+        function controlLED(action) {
+            window.location.href = "control.php?action=" + action;
+        }
+
+        function controlSensor(action) {
+            window.location.href = "control.php?action=" + action;
+        }
+
+        function checkSensor() {
+            fetch("control.php?action=check_sensor")
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("sensor-status").innerText = data;
+                });
+        }
+
+        // Automatically check the sensor status every 5 seconds
+        setInterval(checkSensor, 1000);
+    </script>
+</head>
+<body>
+    <h1>ESP8266 Control Panel</h1>
+
+    <button onclick="controlLED('led_on')">Turn LED ON</button>
+    <button onclick="controlLED('led_off')">Turn LED OFF</button>
+
+    <h2>Sensor Control:</h2>
+    <button onclick="controlSensor('enable_sensor')">Enable Sensor</button>
+    <button onclick="controlSensor('disable_sensor')">Disable Sensor</button>
+    <p id="sensor-status"></p>
+</body>
+</html>
