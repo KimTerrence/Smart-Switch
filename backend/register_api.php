@@ -18,7 +18,7 @@
         
         if ($conn->query($sql) === TRUE) {
           //  header("Location: login.php");
-            echo'<script>window.location = "login.php";</script>';
+            echo'<script>window.location = "../frontend/login.php";</script>';
         } else {
             echo "Error: " . $sql . "<br>" . $conn->error;
         }

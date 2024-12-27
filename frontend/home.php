@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-include 'database_config.php';
+include '../backend/database_config.php';
 
 // Check if the user is logged in
 if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
@@ -46,7 +46,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
                   
             </ul>
             <span class="navbar-text d-flex justify-content-end p-2">
-               <a href="./logout.php" class="btn btn-danger text-white">Logout</a>
+               <a href="../backend/logout.php" class="btn btn-danger text-white">Logout</a>
             </span>
             </div>  
         </div>

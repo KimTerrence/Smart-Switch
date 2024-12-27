@@ -1,0 +1,43 @@
+<!---
+This is Lading Page
+Smart Switch
+MIT + PHP + IOT
+
+Kim Terrence Quines
+Christiam Genova
+Wendel Balgos
+Warren Aglanao
+--->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Switch</title>
+    <link rel="stylesheet" href="./frontend/bootstrap/css/bootstrap.css">
+    <script src="./frontend/bootstrap/js/bootstrap.js"></script>
+</head>
+<body class="w-100 vh-100 bg-dark-subtle d-flex align-items-center justify-content-center">
+    <section class="d-flex h-75 w-75 bg-light rounded ">
+        <div class="w-50 d-flex flex-column justify-content-center align-items-center gap-1 px-5">
+            <p class="fs-1 fw-bold">Smart Switch</p>
+            <i>Where Smart Living Begins!</i>
+            <p class="text-wrap">Experience the future of home automation with our sleek and intuitive smart switches. Designed for convenience and energy efficiency, our solutions make controlling your home as simple as a touch.</p>
+        </div>
+        <div class="w-50 d-flex flex-column justify-content-center align-items-center gap-1">
+            <button class="btn btn-primary w-25" onclick="handleLogin()">Login</button>
+            <p class="m-0">or</p>
+            <button class="btn btn-secondary w-25" onclick="handleRegister()">Register</button>
+        </div>
+    </section>
+    <script>
+        const handleLogin = () => { //funtion to go to login page
+            window.location = "./frontend/login.php"
+        }
+        const handleRegister = () => { //funtion to go to register page
+            window.location = "./frontend/register.php"
+        }
+    </script>
+</body>
+</html>

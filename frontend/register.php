@@ -10,7 +10,7 @@
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body class="d-flex align-items-center vh-100 w-100 justify-content-center bg-dark-subtle position-relative">
-    <form action="register_api.php"  method="POST"  class="d-flex flex-column align-items-center justify-content-center p-5 bg-white shadow rounded gap-4">
+    <form action="../backend/register_api.php"  method="POST"  class="d-flex flex-column align-items-center justify-content-center p-5 bg-white shadow rounded gap-4">
     <p class="fs-1 fw-bold">Register</p>
     <div class="d-flex gap-3">
             <div class="d-flex gap-3 flex-column"> 

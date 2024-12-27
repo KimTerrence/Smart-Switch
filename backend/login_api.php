@@ -17,16 +17,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['loggedin'] = true;
 
              // Redirect to dashboard
-             echo'<script>window.location = "home.php";</script>';
+             echo'<script>window.location = "../frontend/home.php";</script>';
              exit;
 
          } else {
              // Password mismatch
-             header("Location: login.php?error=Invalid credentials");
+             header("Location: ../frontend/login.php?error=Invalid credentials");
              exit;
          }
     } else {
-        header("Location: login.php?error=No user found");
+        header("Location: ../frontend/login.php?error=No user found");
         exit;
     }
 }
