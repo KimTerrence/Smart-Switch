@@ -16,9 +16,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['username'] = $user;  // Store user info in session
             $_SESSION['loggedin'] = true;
 
+            if($row["status"] == "admin"){
+                echo'<script>window.location = "../frontend/admin_dashboard.php";</script>';
+                exit;
+            }else{
              // Redirect to dashboard
              echo'<script>window.location = "../frontend/home.php";</script>';
              exit;
+            }
 
          } else {
              // Password mismatch
