@@ -1,6 +1,7 @@
 <?php
 // URL of your ESP8266
-$esp_url = "http://192.168.8.102"; // Replace with the IP address of your ESP8266
+
+$esp_url = "http://192.168.8.105"; // Replace with the IP address of your ESP8266
 
 // Function to turn the LED on
 function turnLEDOn() {
@@ -19,21 +20,21 @@ function turnLEDOff() {
 // Function to enable the sensor
 function enableSensor() {
     global $esp_url;
-    file_get_contents($esp_url . "/sensor/on");
+    file_get_contents($esp_url . "/motion/on");
     echo '<script>window.location = "index.html" </script>';
 }
 
 // Function to disable the sensor
 function disableSensor() {
     global $esp_url;
-    file_get_contents($esp_url . "/sensor/off");
+    file_get_contents($esp_url . "/motion/off");
     echo '<script>window.location = "index.html" </script>';
 }
 
 // Function to check sensor status
 function checkSensor() {
     global $esp_url;
-    return file_get_contents($esp_url . "/sensor");
+    return file_get_contents($esp_url . "/motion");
     echo '<script>window.location = "index.html" </script>';
 }
 

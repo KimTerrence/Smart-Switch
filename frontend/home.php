@@ -55,6 +55,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
             $sql = "SELECT * FROM switch "; //get data from database
             $switchResult = $conn->query($sql); // query
             while ($switch = $switchResult->fetch_assoc()) { //display data
+                $_SESSION['ip'] == $switch['ip_address']; 
             ?>
             
             <div class="col-12 col-sm-3 rounded p-5 d-flex flex-column gap-2 justify-content-center align-items-center shadow" >
@@ -63,16 +64,18 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
                 <form method="POST" action="../backend/switch_api.php" class="w-100 d-flex justify-content-between align-items-center gap-2" >
                     <input type="text" name="id" value="<?php echo $switch['id'] ?>" hidden>
                     <input type="text" name="switch" value="<?php echo $switch['switch'] ?>" hidden >
+                    <input type="text" name="ip" value="<?php echo $switch['ip_address'] ?>" hidden >
+                   
                     <label for="" class="fw-bold">Switch</label>
                     <div class=" d-flex gap-2 w-50">
-                        <button type="submit" name="switchOn" value="On" class="btn w-50  
+                        <button onclick="controlLED('led_on')" type="submit" name="switchOn" value="On" class="btn w-50  
                         <?php if($switch['switch'] == "off"){
                             echo "btn-primary ";
                         }else{
                             echo " disabled";
                         }
                         ?>">On</button>
-                        <button type="submit" name="switchOff" value="Off" class="btn w-50
+                        <button onclick="controlLED('led_off')" type="submit" name="switchOff" value="Off" class="btn w-50
                         <?php if($switch['switch'] == "on"){
                             echo "btn-danger ";
                         }else{
@@ -84,10 +87,11 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
             <!--Motion btn-->
                 <form method="POST" action="../backend/switch_api.php" class="w-100 d-flex justify-content-between align-items-center gap-2" >
                     <input type="text" name="id" value="<?php echo $switch['id'] ?>" hidden>
-                    <input type="text" name="motion     " value="<?php echo $switch['motion'] ?>" hidden >
+                    <input type="text" name="motion" value="<?php echo $switch['motion'] ?>" hidden >
+                    <input type="text" name="ip" value="<?php echo $switch['ip_address'] ?>" hidden >
                     <label for="" class="fw-bold">Motion Sensor</label>
                     <div class=" d-flex gap-2 w-50">
-                    <button type="submit" name="motionOn" value="On" class="btn w-50 
+                    <button onclick="controlSensor('enable_sensor')" type="submit" name="motionOn" value="On" class="btn w-50 
                         <?php if($switch['motion'] == "off"){
                             echo "btn-primary ";
                         }else if($switch['motion'] == 'disabled'){
@@ -96,7 +100,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
                             echo " disabled";
                         }
                         ?>">On</button>
-                        <button type="submit" name="motionOff" value="Off" class="btn w-50  
+                        <button onclick="controlSensor('disable_sensor')" type="submit" name="motionOff" value="Off" class="btn w-50  
                         <?php if($switch['motion'] == "on"){
                             echo "btn-danger ";
                         }else if($switch['motion'] == 'disabled'){
