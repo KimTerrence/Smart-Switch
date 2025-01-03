@@ -65,14 +65,14 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
                     <input type="text" name="switch" value="<?php echo $switch['switch'] ?>" hidden >
                     <label for="" class="fw-bold">Switch</label>
                     <div class=" d-flex gap-2 w-50">
-                        <button type="submit" name="on" value="On" class="btn w-50  
+                        <button type="submit" name="switchOn" value="On" class="btn w-50  
                         <?php if($switch['switch'] == "off"){
                             echo "btn-primary ";
                         }else{
                             echo " disabled";
                         }
                         ?>">On</button>
-                        <button type="submit" name="off" value="Off" class="btn w-50
+                        <button type="submit" name="switchOff" value="Off" class="btn w-50
                         <?php if($switch['switch'] == "on"){
                             echo "btn-danger ";
                         }else{
@@ -87,17 +87,21 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
                     <input type="text" name="motion     " value="<?php echo $switch['motion'] ?>" hidden >
                     <label for="" class="fw-bold">Motion Sensor</label>
                     <div class=" d-flex gap-2 w-50">
-                    <button type="submit" name="on" value="On" class="btn w-50 
+                    <button type="submit" name="motionOn" value="On" class="btn w-50 
                         <?php if($switch['motion'] == "off"){
                             echo "btn-primary ";
-                        }else{
+                        }else if($switch['motion'] == 'disabled'){
+                            echo " disabled";
+                        } else{
                             echo " disabled";
                         }
                         ?>">On</button>
-                        <button type="submit" name="off" value="Off" class="btn w-50  
+                        <button type="submit" name="motionOff" value="Off" class="btn w-50  
                         <?php if($switch['motion'] == "on"){
                             echo "btn-danger ";
-                        }else{
+                        }else if($switch['motion'] == 'disabled'){
+                            echo " disabled";
+                        } else{
                             echo " disabled";
                         }
                         ?>">Off</button>
@@ -109,17 +113,21 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
                     <input type="text" name="light" value="<?php echo $switch['light'] ?>" hidden >
                     <label for="" class="fw-bold">Light Sensor</label>
                     <div class=" d-flex gap-2 w-50">
-                    <button type="submit" name="on" value="On" class="btn w-50 
+                    <button type="submit" name="lightOn" value="On" class="btn w-50 
                         <?php if($switch['light'] == "off"){
                             echo "btn-primary ";
-                        }else{  
+                        }else if($switch['light'] == "disabled"){  
+                            echo " disabled";
+                        }else {
                             echo " disabled";
                         }
                         ?>">On</button>
-                        <button type="submit" name="off" value="Off" class="btn w-50  
+                        <button type="submit" name="lightOff" value="Off" class="btn w-50  
                         <?php if($switch['light'] == "on"){
                             echo "btn-danger ";
-                        }else{
+                        }else if($switch['light'] == "disabled"){  
+                            echo " disabled";
+                        }else {
                             echo " disabled";
                         }
                         ?>">Off</button>
@@ -132,6 +140,5 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
             ?>
         </div>
     </section>
-    
 </body>
 </html>
