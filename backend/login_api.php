@@ -7,6 +7,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $user = $_POST["username"];
     $pass = $_POST["password"];
 
+    
     $sql = "SELECT * FROM user_info WHERE username='$user'";
     $result = $conn->query($sql);
     
@@ -19,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if($row["status"] == "admin"){
                 echo'<script>window.location = "../frontend/admin_dashboard.php";</script>';
                 exit;
-            }else{
+            }else if($row["status"] == "new"){
              // Redirect to dashboard
              echo'<script>window.location = "../frontend/home.php";</script>';
              exit;

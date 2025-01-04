@@ -2,11 +2,11 @@
 session_start();
 include '../backend/database_config.php';
 
-// Check if the user is logged in
+/* Check if the user is logged in
 if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     header( "Location: login.php");
     exit;
-}
+} */
     $user = $_SESSION['username'];
     
 
