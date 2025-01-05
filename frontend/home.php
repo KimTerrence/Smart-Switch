@@ -32,7 +32,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body class=" vh-100 " > 
-    <nav class="navbar navbar-expand-lg bg-dark-subtle px-2">
+    <nav class="navbar navbar-expand-lg px-">
         <div class="container-fluid bg-white px-lg-5 py-1 shadow rounded">
             <a class="navbar-brand" href="#">Smart Switch</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -52,7 +52,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
         <div class="container-fluid row  p-3 p-sm-5 gap-2 gap-sm-3 pt-3 m-0 d-flex flex-column flex-sm-row align-items-center justify-content-center" >
             <p class="w-100 text-center fs-2"> Welcome, <?php echo htmlspecialchars($row['firstname'] . " ". $row['lastname']); ?> !</p>
             <?php 
-            $sql = "SELECT * FROM switch "; //get data from database
+            $sql = "SELECT * FROM switch ORDER BY id DESC"; //get data from database
             $switchResult = $conn->query($sql); // query
             while ($switch = $switchResult->fetch_assoc()) { //display data
                 $_SESSION['ip'] == $switch['ip_address']; 
