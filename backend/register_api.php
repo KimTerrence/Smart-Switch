@@ -18,12 +18,13 @@
         
         if ($conn->query($sql) === TRUE) {
           //  header("Location: login.php");
-            echo'<script>window.location = "../frontend/login.php";</script>';
+            echo'<script>window.location = "../frontend/admin_dashboard.php";</script>';
         } else {
             echo "Error: " . $sql . "<br>" . $conn->error;
         }
         }else{
-            echo 'mysql error';
+            echo'<script>alert("Password not match");</script>';
+            echo'<script>window.location = "../frontend/admin_dashboard.php";</script>';    
          }
         
     }

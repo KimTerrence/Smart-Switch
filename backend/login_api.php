@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if($row["status"] == "admin"){
                 echo'<script>window.location = "../frontend/admin_dashboard.php";</script>';
                 exit;
-            }else if($row["status"] == "new"){
+            }else if($row["status"] == "User"){
              // Redirect to dashboard
              echo'<script>window.location = "../frontend/home.php";</script>';
              exit;
