@@ -17,7 +17,10 @@
         <input type="text" id="username" name="username" required class="form-control" placeholder="Username" />       
         <input type="password" id="password" name="password" required class="form-control" placeholder="Password" >
         <button type="submit" class="btn btn-primary w-100">Login</button>
-        <p>Dont have an account? <a href="register.php">Register</a></p>
+        <div class="py-2">
+
+        </div>
     </form>
+    
 </body>
 </html>

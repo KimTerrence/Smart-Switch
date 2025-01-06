@@ -20,25 +20,30 @@ Warren Aglanao
     <link rel="stylesheet" href="./frontend/styles.css">
 </head>
 <body class="w-100 vh-100 bg-dark-subtle d-flex align-items-center justify-content-center">
-    <section class="d-flex h-75 w-75 bg-light rounded align-items-center justify-content-center">
-        <div class="w-50 h-100 d-flex flex-column justify-content-center align-items-center gap-1 px-5">
+    <section class="w-50 d-flex h-75 bg-light rounded align-items-center justify-content-center">
+        <div class="w-75 h-100 d-flex flex-column justify-content-center align-items-center gap-1 px-5">
             <p class="fs-1 fw-bold">Smart Switch</p>
             <i>Where Smart Living Begins!</i>
             <p class="text-wrap">Experience the future of home automation with our sleek and intuitive smart switches. Designed for convenience and energy efficiency, our solutions make controlling your home as simple as a touch.</p>
+            <button class="btn btn-primary w-50" onclick="handleLogin()">Login</button>
         </div>
+           <!--
         <div class=" w-50 h-100 d-flex flex-column justify-content-center align-items-center gap-1" id="logRegCon">
             <button class="btn btn-primary w-25" onclick="handleLogin()">Login</button>
-            <p class="m-0">or</p>
-            <button class="btn btn-secondary w-25" onclick="handleRegister()">Register</button>
+         
+                <p class="m-0">or</p>
+                <button class="btn btn-secondary w-25" onclick="handleRegister()">Register</button>
+           
         </div>
+         -->
     </section>
     <script>
         const handleLogin = () => { //funtion to go to login page
             window.location = "./frontend/login.php"
         }
-        const handleRegister = () => { //funtion to go to register page
-            window.location = "./frontend/register.php"
-        }
+       // const handleRegister = () => { //funtion to go to register page
+       //     window.location = "./frontend/register.php"
+        //}
     </script>
 </body>
 </html>

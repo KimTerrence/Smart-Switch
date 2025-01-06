@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['username'] = $user;  // Store user info in session
             $_SESSION['loggedin'] = true;
 
-            if($row["status"] == "admin"){
+            if($row["status"] == "Admin"){
                 echo'<script>window.location = "../frontend/admin_dashboard.php";</script>';
                 exit;
             }else if($row["status"] == "User"){
