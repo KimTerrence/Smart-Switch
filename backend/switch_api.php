@@ -41,7 +41,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         file_get_contents($url . "/motion/off");
         echo'<script>window.location = "../frontend/home.php";</script>';
         exit;
-    }else
+    }else{
+        global $esp_url;
+        return file_get_contents($esp_url . "/motion");
+    }
 //-----light sensor
     if (isset($_POST['lightOn'])){
         $conn-> query("UPDATE switch set light = 'on' WHERE id =  '$id' ");

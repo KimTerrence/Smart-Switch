@@ -1,13 +1,12 @@
-<?php
+<?php 
 session_start();
-
 include '../backend/database_config.php';
 
-// Check if the user is logged in
+/* Check if the user is logged in
 if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     header( "Location: login.php");
     exit;
-}
+} */
     $user = $_SESSION['username'];
     
 
@@ -20,8 +19,6 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
         echo "No user found";
     }
     
-
-
 ?>
 
 <!DOCTYPE html>
@@ -29,21 +26,20 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smart Switch</title>
+    <title>Home</title>
     <link rel="stylesheet" href="./bootstrap/css/bootstrap.css  "/>
     <script src="./bootstrap/js/bootstrap.js"></script>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 </head>
-<body>
-    <nav class="navbar navbar-expand-lg bg-dark-subtle px-2">
+<body class=" vh-100 " > 
+    <nav class="navbar navbar-expand-lg px-">
         <div class="container-fluid bg-white px-lg-5 py-1 shadow rounded">
             <a class="navbar-brand" href="#">Smart Switch</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarText">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                  
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">         
             </ul>
             <span class="navbar-text d-flex justify-content-end p-2">
                <a href="../backend/logout.php" class="btn btn-danger text-white">Logout</a>
@@ -51,59 +47,101 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
             </div>  
         </div>
     </nav>
-
-    <section class="px-2 bg-dark-subtle vh-100">
-        <div class="bg-white shadow w-100 h-100 rounded shadow p-sm-5 p-0 d-flex flex-column align-items-center">
-            <p class="w-100 text-center fs-1"> Welcome, <?php echo htmlspecialchars($row['firstname'] . " ". $row['lastname']); ?> !</p>
-            <div class="h-75 w-75 bg-light-subtle rounded shadow d-flex flex-column align-items-center">
-                <div class="d-flex align-items-center py-4 px-5  w-100">  
-                    <div class="px-5 d-flex justify-content-between w-100 align-items-center">
-                        <button class="btn btn-primary">Turn off all</button>
-                        <p class="text-danger">December 29 10:20:1 AM</p>
-                    </div>              
-                </div>
-                <div class="w-100  d-flex justify-content-center gap-5">
-                   <div class="bg-white shadow w-25  p-2 rounded d-flex align-items-center jusify-content-center flex-column">
-                    <p>Room 1</p>
-                        <button class="btn btn-primary w-50">On</button>
-                   </div>
-                   <div class="bg-white shadow w-25  p-2 rounded d-flex align-items-center jusify-content-center flex-column">
-                    <p>Room 2</p>
-                        <button class="btn btn-primary w-50">switch</button>
-                   </div>
-                   <div class="bg-white shadow w-25  p-2 rounded d-flex align-items-center jusify-content-center flex-column">
-                    <p>Room 3</p>
-                        <button class="btn btn-primary w-50">switch</button>
-                   </div>
-                </div>
-                <div class="w-100 pt-5 d-flex justify-content-center gap-5">
-                   <div class="bg-white shadow w-25  p-2 rounded d-flex align-items-center jusify-content-center flex-column">
-                    <p>Kitchen</p>
-                        <button class="btn btn-primary w-50">switch</button>
-                   </div>
-                   <div class="bg-white shadow w-25  p-2 rounded d-flex align-items-center jusify-content-center flex-column">
-                    <p>Gues Room</p>
-                        <button class="btn btn-primary w-50">switch</button>
-                   </div>
-                   <div class="bg-white shadow w-25  p-2 rounded d-flex align-items-center jusify-content-center flex-column">
-                    <p>Balcony</p>
-                        <button class="btn btn-primary w-50">switch</button>
-                   </div>
-                </div>
-                <div class="w-100 pt-5 d-flex justify-content-center gap-5">
-                   <div class="bg-white shadow w-25  p-2 rounded d-flex align-items-center jusify-content-center flex-column">
-                    <p>Terris</p>
-                        <button class="btn btn-primary w-50">switch</button>
-                   </div>
-                   <div class="bg-white shadow w-25  p-2 rounded d-flex align-items-center jusify-content-center flex-column">
-                    <p>Switch 1</p>
-                        <button class="btn btn-primary w-50">switch</button>
-                   </div>
-                   <div class="bg-white shadow w-25  p-2 rounded d-flex align-items-center jusify-content-center flex-column">
-                    <p>Switch 2</p>
-                        <button class="btn btn-primary w-50">switch</button>
-                   </div>
-            </div>
+    
+    <section class="d-flex align-items-center justify-content-center flex-column w-100">
+        <div class="container-fluid row  p-3 p-sm-5 gap-2 gap-sm-3 pt-3 m-0 d-flex flex-column flex-sm-row align-items-center justify-content-center" >
+            <p class="w-100 text-center fs-2"> Welcome, <?php echo htmlspecialchars($row['firstname'] . " ". $row['lastname']); ?> !</p>
+            <?php 
+            $sql = "SELECT * FROM switch ORDER BY id DESC"; //get data from database
+            $switchResult = $conn->query($sql); // query
+            while ($switch = $switchResult->fetch_assoc()) { //display data
+                $_SESSION['ip'] == $switch['ip_address']; 
+            ?>
+            
+            <div class="col-12 col-sm-3 rounded p-5 d-flex flex-column gap-2 justify-content-center align-items-center shadow" >
+                <p class="text-center fw-bold"><?php echo $switch['name']; ?> </p>
+            <!--Switch btn-->
+                <form method="POST" action="../backend/switch_api.php" class="w-100 d-flex justify-content-between align-items-center gap-2" >
+                    <input type="text" name="id" value="<?php echo $switch['id'] ?>" hidden>
+                    <input type="text" name="switch" value="<?php echo $switch['switch'] ?>" hidden >
+                    <input type="text" name="ip" value="<?php echo $switch['ip_address'] ?>" hidden >
+                   
+                    <label for="" class="fw-bold">Switch</label>
+                    <div class=" d-flex gap-2 w-50">
+                        <button onclick="controlLED('led_on')" type="submit" name="switchOn" value="On" class="btn w-50  
+                        <?php if($switch['switch'] == "off"){
+                            echo "btn-primary ";
+                        }else{
+                            echo " disabled";
+                        }
+                        ?>">On</button>
+                        <button onclick="controlLED('led_off')" type="submit" name="switchOff" value="Off" class="btn w-50
+                        <?php if($switch['switch'] == "on"){
+                            echo "btn-danger ";
+                        }else{
+                            echo " disabled";
+                        }
+                        ?>">Off</button>
+                    </div>
+                </form>
+            <!--Motion btn-->
+                <form method="POST" action="../backend/switch_api.php" class="w-100 d-flex justify-content-between align-items-center gap-2" >
+                    <input type="text" name="id" value="<?php echo $switch['id'] ?>" hidden>
+                    <input type="text" name="motion" value="<?php echo $switch['motion'] ?>" hidden >
+                    <input type="text" name="ip" value="<?php echo $switch['ip_address'] ?>" hidden >
+                    <label for="" class="fw-bold">Motion Sensor</label>
+                    <div class=" d-flex gap-2 w-50">
+                    <button onclick="controlSensor('enable_sensor')" type="submit" name="motionOn" value="On" class="btn w-50 
+                        <?php if($switch['motion'] == "off"){
+                            echo "btn-primary ";
+                        }else if($switch['motion'] == 'disabled'){
+                            echo " disabled";
+                        } else{
+                            echo " disabled";
+                        }
+                        ?>">On</button>
+                        <button onclick="controlSensor('disable_sensor')" type="submit" name="motionOff" value="Off" class="btn w-50  
+                        <?php if($switch['motion'] == "on"){
+                            echo "btn-danger ";
+                        }else if($switch['motion'] == 'disabled'){
+                            echo " disabled";
+                        } else{
+                            echo " disabled";
+                        }
+                        ?>">Off</button>
+                    </div>
+                </form>
+            <!--Light btn-->
+                <form method="POST" action="../backend/switch_api.php" class="w-100 d-flex justify-content-between align-items-center gap-2" >
+                    <input type="text" name="id" value="<?php echo $switch['id'] ?>" hidden>
+                    <input type="text" name="light" value="<?php echo $switch['light'] ?>" hidden >
+                    <label for="" class="fw-bold">Light Sensor</label>
+                    <div class=" d-flex gap-2 w-50">
+                    <button type="submit" name="lightOn" value="On" class="btn w-50 
+                        <?php if($switch['light'] == "off"){
+                            echo "btn-primary ";
+                        }else if($switch['light'] == "disabled"){  
+                            echo " disabled";
+                        }else {
+                            echo " disabled";
+                        }
+                        ?>">On</button>
+                        <button type="submit" name="lightOff" value="Off" class="btn w-50  
+                        <?php if($switch['light'] == "on"){
+                            echo "btn-danger ";
+                        }else if($switch['light'] == "disabled"){  
+                            echo " disabled";
+                        }else {
+                            echo " disabled";
+                        }
+                        ?>">Off</button>
+                    </div>
+                </form>
+            </div>  
+            
+            <?php
+                } 
+            ?>
         </div>
     </section>
 </body>

@@ -30,6 +30,18 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     <link rel="stylesheet" href="./bootstrap/css/bootstrap.css  "/>
     <script src="./bootstrap/js/bootstrap.js"></script>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <script>
+        //function checkSensor() {
+        //    fetch("control.php?action=check_sensor")
+        //        .then(response => response.text())
+        //        .then(data => {
+        //            document.getElementById("sensor-status").innerText = data;
+        //        });
+        //}
+
+        // Automatically check the sensor status every 5 seconds
+        //setInterval(checkSensor, 1000);
+    </script>
 </head>
 <body class=" vh-100 " > 
     <nav class="navbar navbar-expand-lg px-">
@@ -58,87 +70,16 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
                 $_SESSION['ip'] == $switch['ip_address']; 
             ?>
             
-            <div class="col-12 col-sm-3 rounded p-5 d-flex flex-column gap-2 justify-content-center align-items-center shadow" >
+            <div class="w-100 col-12 col-sm-3 rounded p-5 d-flex flex-column gap-2 justify-content-center align-items-center shadow" >
                 <p class="text-center fw-bold"><?php echo $switch['name']; ?> </p>
-            <!--Switch btn-->
-                <form method="POST" action="../backend/switch_api.php" class="w-100 d-flex justify-content-between align-items-center gap-2" >
-                    <input type="text" name="id" value="<?php echo $switch['id'] ?>" hidden>
-                    <input type="text" name="switch" value="<?php echo $switch['switch'] ?>" hidden >
-                    <input type="text" name="ip" value="<?php echo $switch['ip_address'] ?>" hidden >
-                   
-                    <label for="" class="fw-bold">Switch</label>
-                    <div class=" d-flex gap-2 w-50">
-                        <button onclick="controlLED('led_on')" type="submit" name="switchOn" value="On" class="btn w-50  
-                        <?php if($switch['switch'] == "off"){
-                            echo "btn-primary ";
-                        }else{
-                            echo " disabled";
-                        }
-                        ?>">On</button>
-                        <button onclick="controlLED('led_off')" type="submit" name="switchOff" value="Off" class="btn w-50
-                        <?php if($switch['switch'] == "on"){
-                            echo "btn-danger ";
-                        }else{
-                            echo " disabled";
-                        }
-                        ?>">Off</button>
-                    </div>
-                </form>
-            <!--Motion btn-->
-                <form method="POST" action="../backend/switch_api.php" class="w-100 d-flex justify-content-between align-items-center gap-2" >
-                    <input type="text" name="id" value="<?php echo $switch['id'] ?>" hidden>
-                    <input type="text" name="motion" value="<?php echo $switch['motion'] ?>" hidden >
-                    <input type="text" name="ip" value="<?php echo $switch['ip_address'] ?>" hidden >
-                    <label for="" class="fw-bold">Motion Sensor</label>
-                    <div class=" d-flex gap-2 w-50">
-                    <button onclick="controlSensor('enable_sensor')" type="submit" name="motionOn" value="On" class="btn w-50 
-                        <?php if($switch['motion'] == "off"){
-                            echo "btn-primary ";
-                        }else if($switch['motion'] == 'disabled'){
-                            echo " disabled";
-                        } else{
-                            echo " disabled";
-                        }
-                        ?>">On</button>
-                        <button onclick="controlSensor('disable_sensor')" type="submit" name="motionOff" value="Off" class="btn w-50  
-                        <?php if($switch['motion'] == "on"){
-                            echo "btn-danger ";
-                        }else if($switch['motion'] == 'disabled'){
-                            echo " disabled";
-                        } else{
-                            echo " disabled";
-                        }
-                        ?>">Off</button>
-                    </div>
-                </form>
-            <!--Light btn-->
-                <form method="POST" action="../backend/switch_api.php" class="w-100 d-flex justify-content-between align-items-center gap-2" >
-                    <input type="text" name="id" value="<?php echo $switch['id'] ?>" hidden>
-                    <input type="text" name="light" value="<?php echo $switch['light'] ?>" hidden >
-                    <label for="" class="fw-bold">Light Sensor</label>
-                    <div class=" d-flex gap-2 w-50">
-                    <button type="submit" name="lightOn" value="On" class="btn w-50 
-                        <?php if($switch['light'] == "off"){
-                            echo "btn-primary ";
-                        }else if($switch['light'] == "disabled"){  
-                            echo " disabled";
-                        }else {
-                            echo " disabled";
-                        }
-                        ?>">On</button>
-                        <button type="submit" name="lightOff" value="Off" class="btn w-50  
-                        <?php if($switch['light'] == "on"){
-                            echo "btn-danger ";
-                        }else if($switch['light'] == "disabled"){  
-                            echo " disabled";
-                        }else {
-                            echo " disabled";
-                        }
-                        ?>">Off</button>
-                    </div>
-                </form>
-            </div>  
-            
+                
+                    <a href="control.php?ip=<?php echo $switch['ip_address'];?>&action=led_on" class="btn btn-primary">Turn LED ON</a>
+                    <a href="control.php?ip=<?php echo $switch['ip_address'];?>&action=led_off" class="btn btn-secondary">Turn LED OFF</a>
+                    <h2>Sensor Control:</h2>
+                    <a href="control.php?ip=<?php echo $switch['ip_address'];?>&action=enable_sensor" class="btn btn-primary">Enable Sensor</a>
+                    <a href="control.php?ip=<?php echo $switch['ip_address'];?>&action=disable_sensor" class="btn btn-secondary">Disable Sensor</a>
+                    <p id="sensor-status"></p>
+                </div>
             <?php
                 } 
             ?>
