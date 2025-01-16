@@ -23,6 +23,20 @@ function turnLEDOff() {
     echo '<script>window.location = "home.php" </script>';
 }
 
+// Function to enable the ligt
+function enableLight() {
+    global $esp_url;
+    file_get_contents($esp_url . "/light/on");
+    echo '<script>window.location = "home.php" </script>';
+}
+
+// Function to disable the sensor
+function disableLight() {
+    global $esp_url;
+    file_get_contents($esp_url . "/light/off");
+    echo '<script>window.location = "home.php" </script>';
+}
+
 // Function to enable the sensor
 function enableSensor() {
     global $esp_url;
@@ -58,6 +72,12 @@ if (isset($_GET['action'])) {
             break;
         case 'disable_sensor':
             disableSensor();
+            break;
+        case 'enable_light':
+            enableLight();
+            break;
+        case 'disable_light':
+            disableLight();
             break;
         case 'check_sensor':
             $sensorStatus = checkSensor();

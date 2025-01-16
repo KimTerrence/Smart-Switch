@@ -78,6 +78,8 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
                     <h2>Sensor Control:</h2>
                     <a href="control.php?ip=<?php echo $switch['ip_address'];?>&action=enable_sensor" class="btn btn-primary">Enable Sensor</a>
                     <a href="control.php?ip=<?php echo $switch['ip_address'];?>&action=disable_sensor" class="btn btn-secondary">Disable Sensor</a>
+                    <a href="control.php?ip=<?php echo $switch['ip_address'];?>&action=enable_light" class="btn btn-primary">Enable light</a>
+                    <a href="control.php?ip=<?php echo $switch['ip_address'];?>&action=disable_light" class="btn btn-secondary">Disable light</a>
                     <p id="sensor-status"></p>
                 </div>
             <?php

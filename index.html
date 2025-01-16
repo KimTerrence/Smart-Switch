@@ -15,18 +15,30 @@ Warren Aglanao
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Smart Switch</title>
-    <link rel="stylesheet" href="./frontend/bootstrap/css/bootstrap.css">
-    <script src="./frontend/bootstrap/js/bootstrap.js"></script>
     <link rel="stylesheet" href="./frontend/styles.css">
 </head>
-<body class="w-100 vh-100 bg-dark-subtle d-flex align-items-center justify-content-center">
-    <section class="w-50 d-flex h-75 bg-light rounded align-items-center justify-content-center">
-        <div class="w-75 h-100 d-flex flex-column justify-content-center align-items-center gap-1 px-5">
-            <p class="fs-1 fw-bold">Smart Switch</p>
-            <i>Where Smart Living Begins!</i>
-            <p class="text-wrap">Experience the future of home automation with our sleek and intuitive smart switches. Designed for convenience and energy efficiency, our solutions make controlling your home as simple as a touch.</p>
-            <button class="btn btn-primary w-50" onclick="handleLogin()">Login</button>
+<body class="" onload="titleEffect(); subtitleEffect();">
+    <nav>
+        <img src="./frontend/assets/bulb.png" alt="">
+        <div class="navCon">
+            <a href="#home" class="links">Home</a>
+            <a href="#about" class="links">About</a>
+            <a href="#contact" class="links">Contact</a>
+            <a href="./frontend/login.php" class="loginBtn">Login</a>
         </div>
+    </nav>
+    <section class="" id="home">
+        <div class="titleCon">
+            <p class="title" ></p>
+            <i class="subtitle"></i>
+            <p class="description">Experience the future of home automation with our sleek and intuitive smart switches. Designed for convenience and energy efficiency, our solutions make controlling your home as simple as a touch.</p> 
+        </div>
+        <div class="imgCon">
+            <img src="./frontend/assets/BULB1.png" alt="" class="bulb1">
+            <img src="./frontend/assets/BULB2.png" alt="" class="bulb2">
+            <img src="./frontend/assets/hand.png" alt="" class="hand">
+        </div>
+   
            <!--
         <div class=" w-50 h-100 d-flex flex-column justify-content-center align-items-center gap-1" id="logRegCon">
             <button class="btn btn-primary w-25" onclick="handleLogin()">Login</button>
@@ -34,16 +46,14 @@ Warren Aglanao
                 <p class="m-0">or</p>
                 <button class="btn btn-secondary w-25" onclick="handleRegister()">Register</button>
            
-        </div>
+        </div>./
          -->
     </section>
-    <script>
-        const handleLogin = () => { //funtion to go to login page
-            window.location = "./frontend/login.php"
-        }
-       // const handleRegister = () => { //funtion to go to register page
-       //     window.location = "./frontend/register.php"
-        //}
+    <section id="about">
+
+    </section>
+    <script src="./frontend/script.js">
+        subtitleEffect();
     </script>
 </body>
 </html>
