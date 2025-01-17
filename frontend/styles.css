@@ -2,13 +2,13 @@
     padding: 0;
     margin: 0;
     scroll-behavior: smooth;
-    /*border: 1px solid black; */
+    /* border: 1px solid black; */
     font-family: monospace;
 }
 nav{
     display: flex;
     flex-direction: row;
-    height: 80px;
+    height: 60px;
     width: 100%;
     align-items:center;
     justify-content: space-between ;
@@ -17,8 +17,17 @@ nav{
     z-index: 20;
 }
 
+.navBurger{
+    visibility: hidden;
+    display: none;
+}
+
+.navBurger span{
+    visibility: hidden;
+}
+
 nav img{
-    height: 70%;
+    width: 2vw;
     padding-left:40px;
     object-fit: contain;
 }
@@ -172,7 +181,27 @@ nav img{
     height: 100vh;
 }
 
+
+/*-------------------------------------------Mobile Responsive----------------------*/
+
 @media only screen and (max-width:600px) {
+
+.navBurger{
+    display: flex;
+    visibility: visible;
+    height: 100%;
+    width: 10vw;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    padding-right: 40px;
+}
+.navBurger > div{
+    height: 1px;
+    width: 20px;
+    background-color: black;
+}
   
 /*---------------home----------*/
 #home{
@@ -184,26 +213,26 @@ nav img{
     flex-direction: column-reverse;
     align-items: center;
     justify-content: center;
-    overflow: hidden;
 }
 
 .titleCon{
-    width: 100%;
+    width: 90%;
     height: 50% ;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: start;
     flex-direction: column;
+    padding: 0 0 0 0;
 }
 
 .title{
-    font-size:5vw;
+    font-size:7vw;
     font-weight: bold;
     text-align: left;
 }
 
 .subtitle{
-    font-size: 3vw; 
+    font-size: 4vw; 
     animation: subAnim 5s infinite ease-in-out 2s;
 }
 
@@ -215,8 +244,8 @@ nav img{
 
 .description{
     width: 100%;
-    font-size: 2vw;
-    text-align: left; 
+    font-size: 3vw;
+    text-align: center; 
     animation: descAnim 3s ease-in-out;
 }
 
@@ -228,6 +257,7 @@ nav img{
 
 .imgCon{
     width: 100%;
+    height: 50%;
     display: flex;
     align-items:center ;
     justify-content: center ;
