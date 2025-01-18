@@ -1,10 +1,14 @@
-//--------------Kim Quines----------------
+//--------------Kim Terrence Quines----------------
+
+
+
 //--------------script for ui-------------
 
 var title = "Smart Switch";
 var subtitle = "Control Your Lights The Light Way ";;
 i = 0;
 
+//--------landing page typing effect
 const titleEffect = () => {
     if(i < title.length){
         document.querySelector(".title").innerHTML += title.charAt(i);
@@ -23,3 +27,12 @@ const subtitleEffect = () => {
     }
 }
 
+//-----handle responsive navbar
+const handleNav = () => {
+    var nav = document.querySelector("#NavCon");
+    if (nav.className == "navCon"){
+        nav.className = "responsive";
+    }else{
+        nav.className = "navCon"
+    }
+}

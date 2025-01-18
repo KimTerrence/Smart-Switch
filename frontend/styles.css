@@ -5,6 +5,9 @@
     /* border: 1px solid black; */
     font-family: monospace;
 }
+body{
+    background-color: #e3ebee;
+}
 nav{
     display: flex;
     flex-direction: row;
@@ -12,9 +15,9 @@ nav{
     width: 100%;
     align-items:center;
     justify-content: space-between ;
-    background-color: #f8f7f7ec;
     position: fixed;
     z-index: 20;
+    backdrop-filter: blur(10px);
 }
 
 .navBurger{
@@ -184,25 +187,105 @@ nav img{
 
 /*-------------------------------------------Mobile Responsive----------------------*/
 
-@media only screen and (max-width:600px) {
+@media only screen and (max-width:500px) {
+
+nav{
+    display: flex;
+    flex-direction: row;
+    height: 14vw;  
+    width: 100%;
+    align-items:center;
+    justify-content: space-between ;
+    position: fixed;
+    z-index: 20;
+}
+
+nav img{
+    width: 2vw;
+    padding-left:40px;
+    object-fit: contain;
+}
+
+.responsive{
+    visibility: visible;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;  
+    padding: 10vw 0 10vw 0;
+    top: 15vw;
+    height: 35vw ;  
+    width: 100%; 
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    box-shadow: 5px 0 10px rgba(0, 0, 0, 0.164);
+    background-color: #858585a2;
+}
+
+.navCon{
+    position: fixed;
+    top: -10vw;
+    visibility: hidden;    
+}
+
+.responsive .links{
+    text-decoration: none;
+    color: black;
+    font-size: 3.2vw;
+    transition: 0;
+}
+
+.responsive .links:hover{
+    color: blue;
+    transition: 0;
+}
+
+.responsive .links:active{
+    color: ghostwhite;
+}
+.loginBtn{
+    background-color: blue;
+    border: 1px solid blue;
+    padding: 10px 20px;
+    border-radius:5px;
+    color: white;
+    text-decoration: none;
+    font-weight: normal ;
+    transition: 0;
+    font-size: 3.2vw;
+ }
+
+ .loginBtn:hover{
+    background-color: white;
+    border-radius:5px;
+    color: black;
+    border: 1px solid black;
+    transition: 0;
+ }
 
 .navBurger{
+    position: absolute;
+    top: 2vw;
+    right : 2vw;
     display: flex;
     visibility: visible;
-    height: 100%;
+    height: 10vw;
     width: 10vw;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 3px;
-    padding-right: 40px;
+    border: none;
+    background-color: transparent;
 }
 .navBurger > div{
     height: 1px;
     width: 20px;
     background-color: black;
 }
-  
+
 /*---------------home----------*/
 #home{
     padding-top: 80px;
