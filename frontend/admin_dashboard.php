@@ -119,8 +119,8 @@ include '../backend/database_config.php';
                                     <td> <?php echo $user['lastname']; ?> </td>
                                     <td> <?php echo $user['status']; ?> </td>
                                     <td>
-                                        <a href="../backend/delete_user.php?id= <?php echo $user['id'] ; ?> ">
-                                            <img src="./assets/delete_b.svg" alt="delete">
+                                        <a href="../backend/block_user.php?id=<?php echo $user['id'] ; ?>&status=<?php echo $user['status'] ; ?>" class="btn btn-danger">
+                                            Block
                                         </a>
                                     </td>
                                 </tr>

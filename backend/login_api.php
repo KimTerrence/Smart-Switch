@@ -24,6 +24,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
              // Redirect to dashboard
              echo'<script>window.location = "../frontend/home.php";</script>';
              exit;
+            }else {
+                echo'<script>window.location = "../frontend/error.php";</script>';
+                exit;
             }
 
          } else {

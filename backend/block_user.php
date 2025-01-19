@@ -3,9 +3,13 @@
 
 // Get the ID from the URL
 $id = $_GET['id'];
+$status = $_GET['status'];
 
+$newStatus = 'blocked_' . $status;
+
+echo $newStatus;
 // Delete the record
-$sql = "DELETE FROM user_info WHERE id = $id ";
+$sql = "UPDATE user_info SET status = '$newStatus'   WHERE id = $id ";
 
 if ($conn->query($sql) === TRUE) {
     echo "<script>alert('Record deleted successfully')</script>";
