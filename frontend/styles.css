@@ -40,6 +40,7 @@ nav img{
     align-items: center;
     gap: 30px;
     padding-right: 40px;
+    backdrop-filter: blur(10px);
 }
 
 .navCon .links{
@@ -187,7 +188,7 @@ nav img{
 
 /*-------------------------------------------Mobile Responsive----------------------*/
 
-@media only screen and (max-width:500px) {
+@media only screen and (max-width:600px) {
 
 nav{
     display: flex;
@@ -212,22 +213,22 @@ nav img{
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
-    gap: 30px;  
+    justify-content: center;
+    gap: 5vw;  
     padding: 10vw 0 10vw 0;
     top: 15vw;
-    height: 35vw ;  
+    height: 40vw ;  
     width: 100%; 
     border-radius: 10px;
     backdrop-filter: blur(10px);
     box-shadow: 5px 0 10px rgba(0, 0, 0, 0.164);
-    background-color: #858585a2;
 }
 
 .navCon{
     position: fixed;
     top: -10vw;
-    visibility: hidden;    
+    visibility: hidden;
+    backdrop-filter: blur(10px);  
 }
 
 .responsive .links{
@@ -279,6 +280,7 @@ nav img{
     gap: 3px;
     border: none;
     background-color: transparent;
+    cursor: pointer;
 }
 .navBurger > div{
     height: 1px;
