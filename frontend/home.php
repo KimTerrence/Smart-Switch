@@ -70,18 +70,25 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
                 $_SESSION['ip'] == $switch['ip_address']; 
             ?>
             
-            <div class="w-100 col-12 col-sm-3 rounded p-5 d-flex flex-column gap-2 justify-content-center align-items-center shadow" >
+            <div class="w-25 col-12 col-sm-3 rounded p-5 d-flex flex-column gap-2 justify-content-center align-items-center shadow" >
                 <p class="text-center fw-bold"><?php echo $switch['name']; ?> </p>
-                
-                    <a href="control.php?ip=<?php echo $switch['ip_address'];?>&action=led_on" class="btn btn-primary">Turn LED ON</a>
-                    <a href="control.php?ip=<?php echo $switch['ip_address'];?>&action=led_off" class="btn btn-secondary">Turn LED OFF</a>
-                    <h2>Sensor Control:</h2>
-                    <a href="control.php?ip=<?php echo $switch['ip_address'];?>&action=enable_sensor" class="btn btn-primary">Enable Sensor</a>
-                    <a href="control.php?ip=<?php echo $switch['ip_address'];?>&action=disable_sensor" class="btn btn-secondary">Disable Sensor</a>
-                    <a href="control.php?ip=<?php echo $switch['ip_address'];?>&action=enable_light" class="btn btn-primary">Enable light</a>
-                    <a href="control.php?ip=<?php echo $switch['ip_address'];?>&action=disable_light" class="btn btn-secondary">Disable light</a>
+                <div class="d-flex align-items-center justify-content-center gap-2">
+                    <p>Switch</p>
+                    <a href="control.php?ip=<?php echo $switch['ip_address'];?>&action=led_on" class="btn btn-primary">ON</a>
+                    <a href="control.php?ip=<?php echo $switch['ip_address'];?>&action=led_off" class="btn btn-secondary">OFF</a>
+                </div>
+                <div class="d-flex align-items-center justify-content-between p-0 m-0" >
+                    <p>Motion</p>
+                    <a href="control.php?ip=<?php echo $switch['ip_address'];?>&action=enable_sensor" class="btn btn-primary">ON</a>
+                    <a href="control.php?ip=<?php echo $switch['ip_address'];?>&action=disable_sensor" class="btn btn-secondary">OFF</a>
+                </div>
+                <div class="d-flex align-items-center justify-content-between">
+                    <p>Light</p>
+                    <a href="control.php?ip=<?php echo $switch['ip_address'];?>&action=enable_light" class="btn btn-primary">ON</a>
+                    <a href="control.php?ip=<?php echo $switch['ip_address'];?>&action=disable_light" class="btn btn-secondary">OFF</a>
                     <p id="sensor-status"></p>
                 </div>
+            </div>
             <?php
                 } 
             ?>
