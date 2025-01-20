@@ -27,9 +27,8 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
-    <link rel="stylesheet" href="./bootstrap/css/bootstrap.css  "/>
-    <script src="./bootstrap/js/bootstrap.js"></script>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./styles/homee.css">
     <script>
         //function checkSensor() {
         //    fetch("control.php?action=check_sensor")
@@ -43,26 +42,10 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
         //setInterval(checkSensor, 1000);
     </script>
 </head>
-<body class=" vh-100 " > 
-    <nav class="navbar navbar-expand-lg px-">
-        <div class="container-fluid bg-white px-lg-5 py-1 shadow rounded">
-            <a class="navbar-brand" href="#">Smart Switch</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarText">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">         
-            </ul>
-            <span class="navbar-text d-flex justify-content-end p-2">
-               <a href="../backend/logout.php" class="btn btn-danger text-white">Logout</a>
-            </span>
-            </div>  
-        </div>
-    </nav>
-    
-    <section class="d-flex align-items-center justify-content-center flex-column w-100">
-        <div class="container-fluid row  p-3 p-sm-5 gap-2 gap-sm-3 pt-3 m-0 d-flex flex-column flex-sm-row align-items-center justify-content-center" >
-            <p class="w-100 text-center fs-2"> Welcome, <?php echo htmlspecialchars($row['firstname'] . " ". $row['lastname']); ?> !</p>
+<body> 
+    <section class="home">
+        <div class="homeCon" >
+            <p class="title"> Welcome, <?php echo htmlspecialchars($row['firstname'] . " ". $row['lastname']); ?> !</p>
             <?php 
             $sql = "SELECT * FROM switch ORDER BY id DESC"; //get data from database
             $switchResult = $conn->query($sql); // query
@@ -70,29 +53,37 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
                 $_SESSION['ip'] == $switch['ip_address']; 
             ?>
             
-            <div class="w-25 col-12 col-sm-3 rounded p-5 d-flex flex-column gap-2 justify-content-center align-items-center shadow" >
-                <p class="text-center fw-bold"><?php echo $switch['name']; ?> </p>
-                <div class="d-flex align-items-center justify-content-center gap-2">
+            <div class="switchCon">
+                <p class=""><?php echo $switch['name']; ?> </p>
+                <div class="switch">
                     <p>Switch</p>
-                    <a href="control.php?ip=<?php echo $switch['ip_address'];?>&action=led_on" class="btn btn-primary">ON</a>
-                    <a href="control.php?ip=<?php echo $switch['ip_address'];?>&action=led_off" class="btn btn-secondary">OFF</a>
+                    <div>
+                        <a href="control.php?ip=<?php echo $switch['ip_address'];?>&action=led_on" class="onBtn">ON</a>
+                        <a href="control.php?ip=<?php echo $switch['ip_address'];?>&action=led_off" class="offBtn">OFF</a>
+                    </div>
                 </div>
-                <div class="d-flex align-items-center justify-content-between p-0 m-0" >
+                <div class="switch" >
                     <p>Motion</p>
-                    <a href="control.php?ip=<?php echo $switch['ip_address'];?>&action=enable_sensor" class="btn btn-primary">ON</a>
-                    <a href="control.php?ip=<?php echo $switch['ip_address'];?>&action=disable_sensor" class="btn btn-secondary">OFF</a>
+                    <div>
+                        <a href="control.php?ip=<?php echo $switch['ip_address'];?>&action=enable_sensor" class="onBtn">ON</a>
+                        <a href="control.php?ip=<?php echo $switch['ip_address'];?>&action=disable_sensor" class="offBtn">OFF</a>
+                    </div>
                 </div>
-                <div class="d-flex align-items-center justify-content-between">
+                <div class="switch">
                     <p>Light</p>
-                    <a href="control.php?ip=<?php echo $switch['ip_address'];?>&action=enable_light" class="btn btn-primary">ON</a>
-                    <a href="control.php?ip=<?php echo $switch['ip_address'];?>&action=disable_light" class="btn btn-secondary">OFF</a>
-                    <p id="sensor-status"></p>
+                    <div>
+                        <a href="control.php?ip=<?php echo $switch['ip_address'];?>&action=enable_light" class="onBtn">ON</a>
+                        <a href="control.php?ip=<?php echo $switch['ip_address'];?>&action=disable_light" class="offBtn">OFF</a>
+                    </div>
                 </div>
+                    <p id="sensor-status"></p>
             </div>
             <?php
-                } 
+                }
+                if($switchResult < 0){echo "No Switch Available"; }
             ?>
         </div>
+        <a href="../backend/logout.php" class="logoutBtn">Logout</a>
     </section>
 </body>
 </html>

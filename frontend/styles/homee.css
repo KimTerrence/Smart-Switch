@@ -1,0 +1,84 @@
+*{
+    padding: 0;
+    margin: 0;
+    border: 0.5px solid rgba(0, 0, 0, 0.171);
+    font-family: monospace;
+}
+
+.home{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items:center ;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.homeCon{
+    width: 90%;
+    padding: 2vw 0 2vw 0;
+    display: flex;
+    align-items:center ;
+    flex-direction: column;
+    gap: 1vw;
+}
+
+.title{
+    font-size: 2vw;
+}
+
+.switchCon{
+    box-shadow: 5px 0 10px rgba(0, 0, 0, 0.164);
+    width: 20vw;
+    height: 100%;
+    border-radius: 10px;
+    padding: 3vw;
+    font-size: 1vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1vw;
+}
+
+.switch{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5vw ;
+    width: 80%;
+}
+
+.switch div{
+    display: flex;
+    gap: 1vw;
+}
+
+.onBtn{
+    padding: .5vw 1.3vw;
+    background-color: blue;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.offBtn{
+    padding: .5vw 1vw;
+    background-color: red;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.logoutBtn{
+    align-self: flex-end;
+    padding: .8vw 1vw;
+    background-color: red;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 10px;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    font-size: 1vw;
+}
