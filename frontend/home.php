@@ -54,34 +54,43 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
             ?>
             
             <div class="switchCon">
-                <p class=""><?php echo $switch['name']; ?> </p>
+                <h3 class="switchTitle"><?php echo $switch['name']; ?> </h3>
                 <div class="switch">
                     <p>Switch</p>
-                    <div>
-                        <a href="control.php?ip=<?php echo $switch['ip_address'];?>&action=led_on" class="onBtn">ON</a>
-                        <a href="control.php?ip=<?php echo $switch['ip_address'];?>&action=led_off" class="offBtn">OFF</a>
+                    <div class="btnCon">
+                        <a href="control.php?ip=<?php echo $switch['ip_address'];?>&action=led_on&name=<?php echo $switch['name'];?>&currentUsr=<?php echo $currentUser;?>" class="<?php if($switch['status'] == 'restricted'){echo 'disabledBtn';}else if($switch['switch'] == 'off'){ echo 'onBtn';}else if($switch['switch'] == 'on'){echo 'disabledBtn';}?>">ON</a>
+                        <a href="control.php?ip=<?php echo $switch['ip_address'];?>&action=led_off&name=<?php echo $switch['name'];?>&currentUsr=<?php echo $currentUser;?>" class="<?php if($switch['status'] == 'restricted'){echo 'disabledBtn';}else if($switch['switch'] == 'on'){ echo 'offBtn';}else if($switch['switch'] == 'off'){echo 'disabledBtn';}?>">OFF</a>
                     </div>
                 </div>
                 <div class="switch" >
                     <p>Motion</p>
-                    <div>
-                        <a href="control.php?ip=<?php echo $switch['ip_address'];?>&action=enable_sensor" class="onBtn">ON</a>
-                        <a href="control.php?ip=<?php echo $switch['ip_address'];?>&action=disable_sensor" class="offBtn">OFF</a>
+                    <div class="btnCon">
+                        <a href="control.php?ip=<?php echo $switch['ip_address'];?>&action=enable_sensor&name=<?php echo $switch['name'];?>&currentUsr=<?php echo $currentUser;?>" class="<?php if($switch['status'] == 'restricted'){echo 'disabledBtn';}else if($switch['motion'] == 'off'){ echo 'onBtn';}else if($switch['motion'] == 'on'){echo 'disabledBtn';}elseif($switch['motion'] == 'disabled'){echo 'disabledBtn';}?>">ON</a>
+                        <a href="control.php?ip=<?php echo $switch['ip_address'];?>&action=disable_sensor&name=<?php echo $switch['name'];?>&currentUsr=<?php echo $currentUser;?>" class="<?php if($switch['status'] == 'restricted'){echo 'disabledBtn';}else if($switch['motion'] == 'on'){ echo 'offBtn';}else if($switch['motion'] == 'off'){echo 'disabledBtn';}elseif($switch['motion'] == 'disabled'){echo 'disabledBtn';}?>">OFF</a>
                     </div>
                 </div>
                 <div class="switch">
                     <p>Light</p>
-                    <div>
-                        <a href="control.php?ip=<?php echo $switch['ip_address'];?>&action=enable_light" class="onBtn">ON</a>
-                        <a href="control.php?ip=<?php echo $switch['ip_address'];?>&action=disable_light" class="offBtn">OFF</a>
+                    <div class="btnCon">
+                        <a href="control.php?ip=<?php echo $switch['ip_address'];?>&action=enable_light&name=<?php echo $switch['name'];?>&currentUsr=<?php echo $currentUser;?>" class="<?php if($switch['status'] == 'restricted'){echo 'disabledBtn';}else if($switch['light'] == 'off'){ echo 'onBtn';}else if($switch['light'] == 'on'){echo 'disabledBtn';}elseif($switch['light'] == 'disabled'){echo 'disabledBtn';}?>">ON</a>
+                        <a href="control.php?ip=<?php echo $switch['ip_address'];?>&action=disable_light&name=<?php echo $switch['name'];?>&currentUsr=<?php echo $currentUser;?>" class="<?php if($switch['status'] == 'restricted'){echo 'disabledBtn';}else if($switch['light'] == 'on'){ echo 'offBtn';}else if($switch['light'] == 'off'){echo 'disabledBtn';}elseif($switch['light'] == 'disabled'){echo 'disabledBtn';}?>">OFF</a>
                     </div>
                 </div>
-                    <p id="sensor-status"></p>
-            </div>
-            <?php
+                <?php 
+                    $currentUser = $row['firstname'] . ' ' . $row['lastname'];
+                if($switch['status'] == 'unrestrict'){ 
+                ?>
+                    <a href="../backend/restrict.php?id=<?php echo $switch['id'];?>&user=<?php echo $row['firstname'] . ' '. $row['lastname'];?>" class="restrictBtn">restrict</a>
+                <?php }else if($switch['status'] == 'restricted' && $switch['user'] == $currentUser ){ ?>
+                    <a href="../backend/unrestrict.php?id=<?php echo $switch['id'];?>" class="unrestrictBtn">Unrestrict</a>
+                <?php }else{ ?>
+                    <i class="restrictDesc"><?php echo "Restricted By: " . $switch['user']; ?></i>
+                <?php } ?>
+                </div>
+                <?php
                 }
-                if($switchResult < 0){echo "No Switch Available"; }
-            ?>
+                    if($switchResult < 0){echo "No Switch Available"; }
+                ?>
         </div>
         <a href="../backend/logout.php" class="logoutBtn">Logout</a>
     </section>
