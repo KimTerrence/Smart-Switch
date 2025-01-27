@@ -11,7 +11,7 @@
 
         if ($conn->query($sql) === TRUE) {
             //  header("Location: login.php");
-            echo'<script>window.location = "../frontend/admin_dashboard.php";</script>';
+            echo'<script>window.location = "../frontend/switch.php";</script>';
           }
     }
 ?>

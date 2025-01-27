@@ -8,11 +8,11 @@ $id = $_GET['id'];
 $sql = "DELETE FROM switch WHERE id = $id ";
 
 if ($conn->query($sql) === TRUE) {
-    echo'<script>window.location = "../frontend/admin_dashboard.php";</script>';
+    echo'<script>window.location = "../frontend/switch.php";</script>';
     exit();
 } else {
     echo "<script>alert('Error deleting record')</script>";
-    echo'<script>window.location = "../frontend/admin_dashboard.php";</script>';
+    echo'<script>window.location = "../frontend/switch.php";</script>';
 }
 
 // Close connection

@@ -29,6 +29,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     <title>Home</title>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="./styles/homee.css">
+    <link rel="stylesheet" href="../frontend/bootstrap/css/bootstrap.css">
     <script>
         //function checkSensor() {
         //    fetch("control.php?action=check_sensor")
@@ -44,16 +45,19 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
 </head>
 <body> 
     <section class="home">
-        <div class="homeCon" >
-            <p class="title"> Welcome, <?php echo htmlspecialchars($row['firstname'] . " ". $row['lastname']); ?> !</p>
+        <div class="homeCon row row-cols-3" >
+            <!--<p class="title"> Welcome, <?php echo htmlspecialchars($row['firstname'] . " ". $row['lastname']); ?> !</p>-->
             <?php 
             $sql = "SELECT * FROM switch ORDER BY id DESC"; //get data from database
             $switchResult = $conn->query($sql); // query
+            if($switchResult->num_rows <= 0){
+                echo"No Switch Available";
+            }
             while ($switch = $switchResult->fetch_assoc()) { //display data
                 $_SESSION['ip'] == $switch['ip_address']; 
             ?>
             
-            <div class="switchCon">
+            <div class="switchCon col">
                 <h3 class="switchTitle"><?php echo $switch['name']; ?> </h3>
                 <div class="switch">
                     <p>Switch</p>

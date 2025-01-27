@@ -16,9 +16,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (password_verify($pass, $row['password'])) {
             $_SESSION['username'] = $user;  // Store user info in session
             $_SESSION['loggedin'] = true;
+            $_SESSION['status'] = $row['status'];
 
             if($row["status"] == "Admin"){
-                echo'<script>window.location = "../frontend/admin_dashboard.php";</script>';
+                echo'<script>window.location = "../frontend/admin_home.php";</script>';
                 exit;
             }else if($row["status"] == "User"){
              // Redirect to dashboard

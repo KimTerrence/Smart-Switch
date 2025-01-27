@@ -1,0 +1,101 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: monospace;
+}
+
+body{
+    width: 100%;
+    height: 100vh;
+    background-color: antiquewhite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+form{
+    height: 25vw;
+    width: 30%;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    box-shadow: 5px 0 10px rgba(0, 0, 0, 0.164);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5vw;
+}
+
+form input{
+    width: 60%;
+    height: 2.5vw;
+    padding: 0 0 0 1vw;
+    border-radius: 5px;
+    border: solid 1px gray;
+}
+
+button{
+    height: 2.5vw;
+    width: 63.5%;
+    background-color: blue;
+    border-radius: 5px;
+    color: white;
+    border: 1px solid gray;
+}
+
+p{
+    font-size: 1.5vw;
+}
+
+/*---------------mobile responsive-----------------*/
+
+@media (max-width:600px) {
+    *{
+        padding: 0;
+        margin: 0;
+        font-family: monospace;
+    }
+    
+    body{
+        width: 100%;
+        height: 100vh;
+        background-color: antiquewhite;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    form{
+        height: 90vw;
+        width: 90%;
+        background-color: rgb(255, 255, 255);
+        border-radius: 10px;
+        box-shadow: 5px 0 10px rgba(0, 0, 0, 0.164);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 3vw;
+    }
+    
+    form input{
+        width: 60%;
+        height: 10vw;
+        padding: 0 0 0 1vw;
+        border-radius: 5px;
+        border: solid 1px gray;
+    }
+    
+    button{
+        height: 10vw;
+        width: 61.5%;
+        background-color: blue;
+        border-radius: 5px;
+        color: white;
+        border: 1px solid gray;
+    }
+    
+    p{
+        font-size: 4vw;
+    }
+}

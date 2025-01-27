@@ -1,22 +1,58 @@
 *{
     padding: 0;
-    margin: 0; 
+    margin: 0;
     font-family: monospace;
 }
 
+body{
+    display: flex;
+}
+
+nav{
+    width: 20%;
+    background-color: rgb(22, 190, 190);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    gap: 0.5vw;
+}
+
+nav a{
+    text-decoration: none;
+    color: white;
+    border: 1px solid white;
+    width: 95%;
+    height: 3vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.2vw;
+    background-color: rgb(99, 95, 95)   ;
+}
+
+.subtitle{
+    padding: 2vw 0 2vw 0;
+    font-size: 1.5vw;
+    color: white;
+}
+
 .home{
-    width: 100%;
+    width: 80%;
     height: 100%;
     display: flex;
     align-items:center ;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
+    position: absolute;
+    right: 0;
 }
 .homeCon{
     height: 100%;
     width: 80vw;
     padding: 2vw 0 2vw 0;
-    display: grid;
+    display: flex;
     justify-content: center;
     margin: 0 auto;
     gap: 5vw;
@@ -128,15 +164,11 @@
 }
 
 .logoutBtn{
-    align-self: flex-end;
-    padding: .8vw 1vw;
+    width: 10vw;
+    padding: .1vw 0.5vw;
     background-color: red;
     color: white;
     text-decoration: none;
     font-weight: bold;
     border-radius: 10px;
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    font-size: 1vw;
 }
