@@ -16,7 +16,8 @@ body{
 form{
     height: 25vw;
     width: 30%;
-    background-color: #00000033;
+    background-color: rgba(0, 0, 255, 0.096);
+    box-shadow: 0 0 10px rgb(14, 48, 121);
     backdrop-filter: blur(20px);
     border-radius: 10px;
     display: flex;

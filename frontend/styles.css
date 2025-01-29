@@ -46,7 +46,7 @@ nav img{
 
 .navCon .links{
     text-decoration: none;
-    color: white;
+    color: whitesmoke;
     font-size: 1.2vw;
     transition: 0.5s;
 }
@@ -72,16 +72,13 @@ nav img{
  }
 
  .loginBtn:hover{
-    background-color: white;
+    background-color: transparent;
     border-radius:5px;
-    color: black;
-    border: 1px solid black;
+    color: white;
+    border: 1px solid white;
     transition: 0.5s;
  }
-.mainCon{
-  
-    
-}
+
 
 /*---------------home----------*/
 #home{
@@ -221,8 +218,8 @@ nav img{
     height: 40vw ;  
     width: 100%; 
     border-radius: 10px;
-    backdrop-filter: blur(10px);
-    box-shadow: 5px 0 10px rgba(0, 0, 0, 0.164);
+    background-color: rgb(2, 2, 44);
+    box-shadow: 0 0 10px rgb(14, 48, 121);
 }
 
 .navCon{
@@ -234,7 +231,7 @@ nav img{
 
 .responsive .links{
     text-decoration: none;
-    color: black;
+    color: white;
     font-size: 3.2vw;
     transition: 0;
 }
@@ -260,10 +257,10 @@ nav img{
  }
 
  .loginBtn:hover{
-    background-color: white;
+    background-color: transparent;
     border-radius:5px;
-    color: black;
-    border: 1px solid black;
+    color: white;
+    border: 1px solid white;
     transition: 0;
  }
 
@@ -294,7 +291,6 @@ nav img{
     padding-top: 80px;
     height: 90vh;
     width: 100%;
-    background-color: #e3ebee;
     display: flex;
     flex-direction: column-reverse;
     align-items: center;

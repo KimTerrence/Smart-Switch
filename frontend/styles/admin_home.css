@@ -9,158 +9,67 @@ body{
 }
 
 nav{
-    width: 20%;
-    background-color: rgb(22, 190, 190);
-    height: 100vh;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row;
+    height: 60px;
+    width: 100%;
+    align-items:center;
+    justify-content: space-between ;
     position: fixed;
-    gap: 0.5vw;
+    z-index: 20;
+    backdrop-filter: blur(10px);
 }
 
-nav a{
-    text-decoration: none;
-    color: white;
-    border: 1px solid white;
-    width: 95%;
-    height: 3vw;
+.navBurger{
+    visibility: hidden;
+    display: none;
+}
+
+.navBurger span{
+    visibility: hidden;
+}
+
+nav img{
+    width: 2vw;
+    padding-left:40px;
+    object-fit: contain;
+}
+
+.navCon{
     display: flex;
     align-items: center;
-    justify-content: center;
-    border-radius: 0.2vw;
-    background-color: rgb(99, 95, 95)   ;
+    gap: 30px;
+    padding-right: 40px;
+    backdrop-filter: blur(10px);
 }
 
-.subtitle{
-    padding: 2vw 0 2vw 0;
-    font-size: 1.5vw;
-    color: white;
+.navCon .links{
+    text-decoration: none;
+    color: whitesmoke;
+    font-size: 1.2vw;
+    transition: 0.5s;
+}
+
+.navCon .links:hover{
+    color: blue;
+    transition: 0.5s
+}
+
+.navCon .links:active{
+    color: ghostwhite;
 }
 
 .home{
-    width: 80%;
-    height: 100%;
-    display: flex;
-    align-items:center ;
-    flex-direction: column;
-    justify-content: space-between;
+    padding-top: 5vw;
+    width: 100%;;
     position: absolute;
     right: 0;
+    top: 0;
+    background: linear-gradient(45deg, hsla(240, 56%, 5%, 1) 44%, hsla(221, 82%, 13%, 1) 100%);
 }
-.homeCon{
-    height: 100%;
-    width: 80vw;
-    padding: 2vw 0 2vw 0;
-    display: flex;
-    justify-content: center;
-    margin: 0 auto;
-    gap: 5vw;
-    grid-template-columns: repeat(3, auto);
-}
-
-.title{
-    font-size: 2vw;
-}
-
 .switchCon{
-    box-shadow: 5px 0 10px rgba(0, 0, 0, 0.164);
-    width: 20vw;
-    height: 100%;
-    border-radius: 10px;
-    padding: 1vw;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    gap: 1vw;
-}
-
-.switch{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 1.5vw ;
-    width: 80%;
-    font-size: 1vw;
-}
-
-.switchTitle{
-    font-size: 1.5vw;
-    font-weight: bold;
-}
-
-
-.btnCon{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 50%;
-}
-.onBtn{
-    background-color: blue;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 45%;
-    padding: .5vw 0;
-    border: 0.5px solid black;
-}
-
-.offBtn{
-    background-color: red;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 45%;
-    padding: .5vw 0;
-    border: 0.5px solid black;
-}
-
-.disabledBtn{
-    color: black;
-    text-decoration: none;
-    border-radius: 5px;
-    pointer-events: none;
-    border: 0.5px solid black;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 45%;
-    padding: .5vw 0;
-}
-
-.restrictBtn{
-    padding: .5vw 1vw;
-    background-color: red;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    align-self: flex-end;
-    margin-right: 2vw;
-    font-size: 1vw;
-}
-
-.unrestrictBtn{
-    padding: .5vw 1vw;
-    background-color: blue;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    align-self: flex-end;
-    margin-right: 2vw;
-    font-size: 1vw;
-}
-
-.restrictDesc{
-    font-size: 0.6vw;
-    color: red;
+    background-color: rgba(0, 0, 255, 0.096);
+    box-shadow: 0 0 10px rgb(14, 48, 121);
 }
 
 .logoutBtn{
@@ -171,4 +80,108 @@ nav a{
     text-decoration: none;
     font-weight: bold;
     border-radius: 10px;
+}
+
+
+
+/*-----------mobile--------------*/
+@media only screen and (max-width:600px) {
+
+    nav{
+        display: flex;
+        flex-direction: row;
+        height: 14vw;  
+        width: 100%;
+        align-items:center;
+        justify-content: space-between ;
+        position: fixed;
+        z-index: 20;
+    }
+    
+    nav img{
+        width: 2vw;
+        padding-left:40px;
+        object-fit: contain;
+    }
+    
+    .responsive{
+        visibility: visible;
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 5vw;  
+        padding: 10vw 0 10vw 0;
+        top: 15vw;
+        height: 60vw ;  
+        width: 100%; 
+        border-radius: 10px;
+        background-color: rgb(2, 2, 44);
+        box-shadow: 0 0 10px rgb(14, 48, 121);
+    }
+    
+    .navCon{
+        position: fixed;
+        top: -10vw;
+        visibility: hidden;
+        backdrop-filter: blur(10px);  
+    }
+    
+    .responsive .links{
+        text-decoration: none;
+        color: white;
+        font-size: 3.2vw;
+        transition: 0;
+    }
+    
+    .responsive .links:hover{
+        color: blue;
+        transition: 0;
+    }
+    
+    .responsive .links:active{
+        color: ghostwhite;
+    }
+    .loginBtn{
+        background-color: blue;
+        border: 1px solid blue;
+        padding: 10px 20px;
+        border-radius:5px;
+        color: white;
+        text-decoration: none;
+        font-weight: normal ;
+        transition: 0;
+        font-size: 3.2vw;
+     }
+    
+     .loginBtn:hover{
+        background-color: white;
+        border-radius:5px;
+        color: black;
+        border: 1px solid black;
+        transition: 0;
+     }
+    
+    .navBurger{
+        position: absolute;
+        top: 2vw;
+        right : 2vw;
+        display: flex;
+        visibility: visible;
+        height: 10vw;
+        width: 10vw;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 3px;
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+    }
+    .navBurger > div{
+        height: 1px;
+        width: 20px;
+        background-color: white;
+    }
 }

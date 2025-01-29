@@ -1,5 +1,5 @@
 <?php 
 
-echo "no account found or account blocked";
+echo "account blocked";
 
 ?>

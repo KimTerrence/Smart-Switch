@@ -88,7 +88,7 @@ section{
 
 .switchCon{
     padding: 1vw;
-    margin-top: 1vw;
+    margin-top: 5vw;
     width: 90%;
     box-shadow: 5px 0 10px rgba(0, 0, 0, 0.164);
     display: flex; 
@@ -102,7 +102,6 @@ table{
     height: 100%;
     text-align: center;
     overflow: scroll;
-    background-color: rgba(20, 3, 3, 0.329);
 }
 
 table ,tr {
@@ -300,5 +299,8 @@ table ,tr {
         border: 1px solid black;
         border-radius: 5px;
         color: white;
+    }
+    .switchCon{
+        margin-top: 20vw;
     }
 }       

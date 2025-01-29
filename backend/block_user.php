@@ -12,12 +12,12 @@ echo $newStatus;
 $sql = "UPDATE user_info SET status = '$newStatus'   WHERE id = $id ";
 
 if ($conn->query($sql) === TRUE) {
-    echo "<script>alert('Record deleted successfully')</script>";
-    echo'<script>window.location = "../frontend/admin_dashboard.php";</script>';
+    echo "<script>alert('User blocked successfully')</script>";
+    echo'<script>window.location = "../frontend/users.php";</script>';
     exit();
 } else {
     echo "<script>alert('Error deleting record')</script>";
-    echo'<script>window.location = "../frontend/admin_dashboard.php";</script>';
+    echo'<script>window.location = "../frontend/users.php";</script>';
 }
 
 // Close connection
