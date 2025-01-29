@@ -1,0 +1,158 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: monospace;
+}
+
+body{
+    display: flex;
+}
+
+nav{
+    width: 20%;
+    background-color: rgb(22, 190, 190);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    gap: 0.5vw;
+}
+
+nav a{
+    text-decoration: none;
+    color: white;
+    border: 1px solid white;
+    width: 95%;
+    height: 3vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.2vw;
+    background-color: rgb(99, 95, 95)   ;
+}
+
+.subtitle{
+    padding: 2vw 0 2vw 0;
+    font-size: 1.5vw;
+    color: white;
+}
+
+section{
+    width: 80%;
+    height: 100vh;
+    display: flex;
+    align-items:center ;
+    flex-direction: column;
+    justify-content: center;
+    position: absolute;
+    right: 0;
+}
+
+.addSwitchBtn{
+    align-self: self-start;
+    margin-left: 5vw;
+    padding: 0.8vw 1vw;
+    background-color: blue ;
+    border: 1px solid black;
+    border-radius: 5px;
+    color: white;
+}
+
+.switchCon{
+    padding-top: 1vw;
+    margin-top: 1vw;
+    height: 80%;
+    width: 90%;
+    box-shadow: 5px 0 10px rgba(0, 0, 0, 0.164);
+    display: flex; 
+    justify-content: center;
+    border-radius: 5px;
+}
+
+table{
+    width: 99%;
+    text-align: center;
+    overflow: hidden;
+}
+
+table ,tr, td {
+    border: 1px solid ;
+    border-collapse: collapse;
+    height: 2vw;
+}
+
+.modal{
+    visibility: visible;
+    position: fixed;
+    height: 100vh;
+    width: 80%;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.493);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.visible{
+    visibility: hidden;
+    position: fixed;
+    height: 100vh;
+    width: 80%;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.493);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal form{
+    width: 40%;
+    height: 60%;
+    background-color: aliceblue;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5vw;
+    border-radius: 5px;
+    font-size: 1vw;
+    position: relative;
+}
+
+.modal form input{
+    height: 2vw;
+    width: 60%;
+    border-radius: 5px;
+    border: 1px solid black;
+    padding: 0 0 0 0.5vw;
+}
+
+.modal > form > div{
+    width: 60%;
+    height: 1vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1vw;
+}
+
+.modal > form > div > select {
+    height: 2vw;
+    background-color: white;
+    border: 1px solid black;
+    width: 30%;
+    padding: 0.5vw 1vw;
+    border-radius: 5px;
+}
+
+.closeBtn{
+    font-size: 1.5vw;
+    border: none;
+    background-color: transparent;
+    position: absolute;
+    top: 1vw;
+    right: 2vw;
+    cursor: pointer;
+    text-decoration: none;
+}

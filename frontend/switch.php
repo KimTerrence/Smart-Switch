@@ -15,8 +15,8 @@
         <p class="subtitle">Switch</p>
         <a href="./admin_home.php">Home</a>
         <a href="./switch.php">Switch</a>
-        <a href="">Users</a>
-        <a href="">History</a>
+        <a href="./users.php">Users</a>
+        <a href="./history.php">History</a>
         <a href="../backend/logout.php" class="logoutBtn">Logout</a>
     </nav>
     <section>
