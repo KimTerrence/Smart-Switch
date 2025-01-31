@@ -1,6 +1,7 @@
 Smart Switch 
  PHP | IOT | 
 
+<img src="./sm1"/>
 
 note!!
 login as admin first then add user
