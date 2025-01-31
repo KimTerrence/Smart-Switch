@@ -238,12 +238,12 @@ table ,tr {
         text-decoration: none;
         color: white;
         font-size: 3.2vw;
-        transition: 0;
+        transition: 0.5;
     }
     
     .responsive .links:hover{
         color: blue;
-        transition: 0;
+        transition: 0.5;
     }
     
     .responsive .links:active{

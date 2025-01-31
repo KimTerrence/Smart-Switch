@@ -33,7 +33,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
 </head>
 <body>
     <nav>
-        <img src="./frontend/assets/bulb.png" alt="">
+        <img src="./assets/bulb.png " alt="">
         <div class="navCon" id="NavCon">
             <a href="./admin_home.php" class="links">Home</a>
             <a href="./switch.php" class="links">Switch</a>

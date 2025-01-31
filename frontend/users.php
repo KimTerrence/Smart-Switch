@@ -1,6 +1,23 @@
 <?php 
     session_start();
     include '../backend/database_config.php';
+
+    // Check if the user is logged in
+if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
+    header( "Location: login.php");
+    exit;
+}
+    $user = $_SESSION['username'];
+    
+
+    $sql = "SELECT * FROM user_info WHERE username='$user'";        
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();  
+    } else {
+        echo "No user found";
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -39,7 +56,7 @@
                     <th colspan="3">Edit</th>
                 </tr>
                 <?php 
-                    $sql = "SELECT * FROM user_info WHERE status = 'Admin' or status = 'User' ORDER BY id DESC "; //get data from database
+                    $sql = "SELECT * FROM user_info WHERE status <> 'Admin'  ORDER BY id DESC "; //get data from database
                     $userResult = $conn->query($sql); // query
                     while ($user = $userResult->fetch_assoc()) { //display data
                  ?>
@@ -48,9 +65,15 @@
                     <td> <?php echo $user['lastname']; ?> </td>
                     <td> <?php echo $user['status']; ?> </td>
                     <td>
+                        <?php if($user['status'] == "User"){?>
                         <a href="../backend/block_user.php?id=<?php echo $user['id'] ; ?>&status=<?php echo $user['status'] ; ?>" class="btn btn-danger">
                             Block
                         </a>
+                        <?php }else if ($user['status'] == "Blocked_User") {?>
+                            <a href="../backend/unblock_user.php?id=<?php echo $user['id'] ; ?>&status=<?php echo $user['status'] ; ?>" class="btn btn-success">
+                            Unblock
+                            </a>
+                        <?php }?>
                     </td>
                 </tr>
                 <?php   
