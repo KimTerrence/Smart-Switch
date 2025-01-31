@@ -1,4 +1,3 @@
-
 #include <ESP8266WiFi.h>
 #include <ESP8266WebServer.h>
 
@@ -6,12 +5,15 @@
 const char* ssid = "HUAWEI-E5330-6FF2";       // Replace with your Wi-Fi SSID
 const char* password = "m7t05htj";   // Replace with your Wi-Fi password
 
-//pin for LED and HC-SR501 sensor 
+// Pin definitions
 const int ledPin = D1;
-const int sensorPin = D2; 
+const int sensorPin = D2;
 
-// Flag to enable or disable sensor reading
+// Flags to enable or disable functionality
 bool sensorEnabled = false;
+bool lightEnabled = false; // Added lightEnabled variable
+
+// Variables for motion detection
 unsigned long lastMotionCheck = 0;
 int motionStatus = LOW; // Default to no motion
 
@@ -33,40 +35,38 @@ void setup() {
   pinMode(sensorPin, INPUT);
 
   // Handle requests for controlling LED
-  server.on("/led/on", HTTP_GET, [](){
+  server.on("/led/on", HTTP_GET, []() {
     digitalWrite(ledPin, HIGH); // Turn LED on
     server.send(200, "text/plain", "LED is ON");
   });
 
-  server.on("/led/off", HTTP_GET, [](){
+  server.on("/led/off", HTTP_GET, []() {
     digitalWrite(ledPin, LOW); // Turn LED off
     server.send(200, "text/plain", "LED is OFF");
   });
 
-  // Handle request to enable/disable sensor
-  server.on("/motion/on", HTTP_GET, [](){
-    sensorEnabled = true; // Enable sensor
-    server.send(200, "text/plain", "Sensor is enabled");
+  // Handle requests to enable/disable motion sensor
+  server.on("/motion/on", HTTP_GET, []() {
+    sensorEnabled = true;
+    server.send(200, "text/plain", "Motion sensor is enabled");
   });
 
-  server.on("/motion/off", HTTP_GET, [](){
-    sensorEnabled = false; // Disable sensor
+  server.on("/motion/off", HTTP_GET, []() {
+    sensorEnabled = false;
     digitalWrite(ledPin, LOW); // Turn LED off
-    server.send(200, "text/plain", "Sensor is disabled");
+    server.send(200, "text/plain", "Motion sensor is disabled");
   });
 
-  // Handle request for reading the sensor
-  server.on("/motion", HTTP_GET, [](){
-    if (sensorEnabled) {
-      server.send(200, "text/plain", motionStatus == HIGH ? "Motion detected" : "No motion");
-      if(motionStatus == HIGH){
-        digitalWrite(ledPin, HIGH); 
-      }else{
-        digitalWrite(ledPin, LOW); 
-      }
-    } else {
-      server.send(200, "text/plain", "Sensor is disabled");
-    }
+  // Handle requests to enable/disable light sensor
+  server.on("/light/on", HTTP_GET, []() {
+    lightEnabled = true; // Enable light sensor
+    server.send(200, "text/plain", "Light sensor is enabled");
+  });
+
+  server.on("/light/off", HTTP_GET, []() {
+    lightEnabled = false; // Disable light sensor
+    digitalWrite(ledPin, LOW); // Turn LED off
+    server.send(200, "text/plain", "Light sensor is disabled");
   });
 
   // Start the server
@@ -76,26 +76,30 @@ void setup() {
 void loop() {
   server.handleClient(); // Handle client requests
 
-//--------------------------------------motion sensor--------------------------------
-  // Check motion every 5 seconds
+  //-------------------------------------- Motion Sensor --------------------------------
+  // Check motion every second
   unsigned long currentMillis = millis();
   if (sensorEnabled && (currentMillis - lastMotionCheck >= 1000)) {
     lastMotionCheck = currentMillis;
     motionStatus = digitalRead(sensorPin); // Read HC-SR501 sensor
     Serial.println(motionStatus == HIGH ? "Motion detected" : "No motion");
+    digitalWrite(ledPin, motionStatus == HIGH ? HIGH : LOW);
   }
-/*
-//---------------------------------------light sensor---------------------------------
- // read the input on analog pin 0:
-  int sensorValue = analogRead(A0);
-  
-  // Convert the analog reading (which goes from 0 - 1023) to a voltage (0 - 5V):
-  float voltage = sensorValue * (5.0 / 1023.0);
-  
-  if(voltage >= 3){
-    digitalWrite(ledPin, LOW);  
-  }else{
-    digitalWrite(ledPin, HIGH);
+
+  //--------------------------------------- Light Sensor ---------------------------------
+  if (lightEnabled) {
+    // Read the input on analog pin A0
+    int sensorValue = analogRead(A0);
+    // Convert the reading to a voltage (assuming 0 - 1023 maps to 0 - 5V)
+    float voltage = sensorValue * (5.0 / 1023.0);
+    Serial.print("Light sensor voltage: ");
+    Serial.println(voltage);
+
+    // Control LED based on voltage threshold
+    if (voltage >= 3.0) {
+      digitalWrite(ledPin, LOW);  
+    } else {
+      digitalWrite(ledPin, HIGH);
+    }
   }
-*/
 }
